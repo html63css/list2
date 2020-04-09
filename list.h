@@ -4,13 +4,13 @@
 struct List
 {
 	void add(Element*);
-	void remove(Element*);
 	void addN(Element*);
+	void remove(Element*);
 	void removeN(Element*);
-	void write();
-	void read();
 	void closure();
 	void disjunction(Element*);
+	void write();
+	void read();
 	List();
 	Element* head;
 	Element* end;

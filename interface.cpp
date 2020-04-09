@@ -115,22 +115,20 @@ int main()
 				}
 			}
 			break;
-		//case(KEY_CLOSURE):
-		//	if (list.count >= 2)
-		//	{
-		//		list.closure();
-		//	}
-		//	getch();
-		//	break;
-		//case(KEY_DISJUNCTION):
-		//	if (positionElement != nullptr)
-		//	{
-		//		list.disjunction(positionElement);
-		//		position = 0;
-		//		positionElement = nullptr;
-		//	}
-		//	getch();
-		//	break;
+		case(KEY_CLOSURE):
+			if (list.count >= 2 && list.isRing == 0)
+			{
+				list.closure();
+			}
+			break;
+		case(KEY_DISJUNCTION):
+			if (positionElement != nullptr)
+			{
+				list.disjunction(positionElement);
+				position = 0;
+				positionElement = nullptr;
+			}
+			break;
 		}
 	} while (ch != KEY_END);
 

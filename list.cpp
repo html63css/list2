@@ -107,3 +107,24 @@ void List::remove(Element* base)
 		return;
 	}
 }
+
+void List::closure()
+{
+	if (isRing == 0)
+	{
+		head->early = end;
+		end->next = head;
+		isRing = 1;
+	}
+}
+
+void List::disjunction(Element* base)
+{
+	if (isRing == 1)
+	{
+		end = base;
+		head = base->next;
+		isRing = 0;
+	}
+}
+
