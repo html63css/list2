@@ -52,6 +52,58 @@ void List::add(Element* base)
 	}
 	else
 	{
+		elem->next = base->next;
+		elem->early = base;
+		base->next = elem;
+		elem->next->early = elem;
+		++count;
+		return;
+	}
+}
 
+void List::remove(Element* base)
+{
+	if (isRing == 0)
+	{
+		if (base == head && base != end)
+		{
+			head = base->next;
+			head->early = nullptr;
+			delete base;
+			--count;
+			return;
+		}
+		else if (base != head && base == end)
+		{
+			end = base->early;
+			end->next = nullptr;
+			delete base;
+			--count;
+			return;
+		}
+		else if (base != head && base != end)
+		{
+			base->early->next = base->next;
+			base->next->early = base->early;
+			delete base;
+			--count;
+			return;
+		}
+		else if (base == head && base == end)
+		{
+			head = nullptr;
+			end = nullptr;
+			delete base;
+			count = 0;
+			return;
+		}
+	}
+	else
+	{
+		base->early->next = base->next;
+		base->next->early = base->early;
+		delete base;
+		--count;
+		return;
 	}
 }

@@ -98,23 +98,23 @@ int main()
 			std::cout << "Введите число \n";
 			list.add(positionElement);
 			break;
-		//case(KEY_REMOVE):
-		//	if (position != 0)
-		//	{
-		//		if (position == list.count)
-		//		{
-		//			position = 0;
-		//			list.remove(positionElement);
-		//			positionElement = nullptr;
-		//		}
-		//		else
-		//		{
-		//			bufferDel = positionElement->next;
-		//			list.remove(positionElement);
-		//			positionElement = bufferDel;
-		//		}
-		//	}
-		//	break;
+		case(KEY_REMOVE):
+			if (position != 0)
+			{
+				if (position == list.count)
+				{
+					position = 0;
+					list.remove(positionElement);
+					positionElement = nullptr;
+				}
+				else
+				{
+					bufferDel = positionElement->next;
+					list.remove(positionElement);
+					positionElement = bufferDel;
+				}
+			}
+			break;
 		//case(KEY_CLOSURE):
 		//	if (list.count >= 2)
 		//	{
