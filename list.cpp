@@ -7,14 +7,22 @@ List::List()
 	isRing = false;
 	count = 0;
 }
+
 void List::add(Element* base)
 {
 	int num;
-	std::cin >> num;
 	Element* elem = new Element();
-	elem->date = num;
 	elem->next = nullptr;
 	elem->early = nullptr;
+	do
+	{
+		std::cout << "Введите число\n";
+		std::cin >> num;
+		std::cin.ignore();
+		if (num < INT_MIN || num > INT_MAX)
+			printf("Повторите ввод. Введено некорректное значение");
+	} while (num < INT_MIN || num > INT_MAX);
+	elem->date = num;
 	if (isRing == 0)
 	{
 		if (base == nullptr && head != nullptr && end != nullptr)
